@@ -1,0 +1,18 @@
+The Analysis folder contains 4 folders each containing methods: method1, method2, method3, method4. In each of these folder, there are .txt files which were formed after running the code for that method. There are 6-7 .txt files in each of the folder. They can be used for finding the utility. The folder for each method also contains a sub-folder Utility_and_Graph which contains the code for finding the utility and code for plotting the graph in python. It also contains the final graph image formed in .png format.
+For finding the utility for any file, first copy it into the folder of utility_and_graph. Then in the file utility.py change the name of the file to be opened. For method1 and method2, it prints the value of 1/utility.
+The name of file in method1 is : "frame"+x       where x is the value of the parameter
+The name of the file in method2 is: "myfile"+X+Y      where X and Y are parameters
+The name of the file in method3 is: x+"_3d"  for dynamic
+				     x+"_3q"   for queue     where x is the parameter
+The name of the file in method4 is: x+"_4d"  for dynamic
+				     x+"_4q"   for queue     where x is the parameter
+
+For finding the utility of any file in method3 and method4, first copy the dynamic and queue files in the required folder. Then in the file utility.py change the name of the file to be opened. Then it prints the value of utility.
+
+Description of .txt files:
+
+method1 and method2: The files in these folders contain 3 values in a line- time, queue density, dynamic density all of them separated by 4 spaces.
+method3:  The files in this folder contain contain 1 value in a line- either dynamic density or queue density depending on the name of the file
+method4:  The files in this folder contain contain 2 value in a line-(i)time (ii)either dynamic density or queue density depending on the name of the file
+
+The Analysis folder also contains a file in pdf format which is the latex report.
