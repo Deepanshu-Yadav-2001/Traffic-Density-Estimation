@@ -1,0 +1,49 @@
+This is the subtask 2 of assignment 1
+In this part we have to calculate Queue density and Dynamic density of Traffic in road going northwards
+Our code contains two parts 
+1) Queue density calculation using Background Subtraction method
+2) Dynamic density calculation using Optical Flow method
+
+We are running our video in 3 fps 
+
+# Queue density
+Initially we are taking input of empty image which contains no empty road for the queue density
+extracting frames from video one at a time
+converting the frame and the empty image into grayscale image as this will give us clear binary images
+Now using absdiff function of openCV for calculating Background Subtraction and storing in an image
+This image will contain noise in it , so to eliminate it use Gaussian blur function
+Now to get the resultant image in binary we use threshold function which gives black and white image.
+We only want the north going road for our calculation of queue density
+so using the function of subtask 1 of cropping the image for desired region.
+After this calculate the white pixels of image using countNonZero of openCV 
+also calculate the total pixels of cropped image 
+white pixels will give the moving as well as stationary objects appearing in road
+
+Queue density = No of white pixels / No of total pixels
+
+# Dynamic density
+It consists of using the Optical Flow concept
+Here take two frames at a time and convert to grayscale
+Now use the function calcOpticalFlow which gives the image of moving objects.
+This image will be converted to BRG and then to grayscale as it was HSV earlier.
+This grayscale image will contains noise 
+hence use Gaussian blur and then threshold function to get binary images
+Now crop as earlier and get the resultant image 
+Do the same as calculating white pixels and total pixels of cropped image
+Here white pixels will give moving objects in road
+
+Dynamic density = No of white pixels / No of total pixels
+
+This process will continue till the last empty frame is encounted .i.e video ends.
+
+The terminal will contain the desired tab seperated columns of time, queue density, Dynamic density
+
+### output file  
+The sample output file will contain the time , queue density, Dynamic density
+From this we make a curve 
+It is clear from curve that as the vehicles approach signal and it is RED, queue density increases
+and becomes attain saturation.
+The dynamic density increases and will start to reduce as vehicles stop at signal RED
+Now after signal turns GREEN dynamic density starts to increase and queue density decrease as vehicles 
+leave the traffic region.
+Queue density >= Dynamic density 
