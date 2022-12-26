@@ -1,0 +1,30 @@
+For useful tasks like traffic density estimation on a particular road stretch, it is 
+important to first correct the camera angle in software, and crop the image to remove 
+the additional objects. This is the goal of the first assignment Subtask1.
+
+Our folder contains t.cpp , Makefile and Readme File.
+
+Approach (In t.cpp)
+change color of original image to grey-scale
+selected 4 points manually using mouse click using click function
+this points are the source point
+destination points are the same as used by ma'am
+In our code, we have first used concept of homography to convert the original frame
+homography will make a matrix h which will be used to make the projected frame
+we have then used wrapPerspectiveTransform to change original frame to projected frame
+then we have made a matrix to store the cropped image using getPerspectiveTransform
+stroing cropped matrix in crop and projected image in imout
+thereby saving the cropped and projected images in the same directory as our sourse code.
+
+For Makefile 
+It contains library flags 
+target is my source code file t with dependency t.cpp
+then command that generates the target and executable file i.e. mycode
+
+For running on terminal
+First compile the program using the command  make
+then for running
+./mycode image_name
+if the image is present in the directory, it will show the given image. Left click on 4 points of which you want to get the bird view.
+ Press any key to get the projected image. Again press any any key to get the cropped image.
+ If the name of the image entered does not exist in the directory, it will show "image is not present" and the program ends.
